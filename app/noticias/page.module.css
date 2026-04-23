@@ -1,0 +1,331 @@
+/* ===============================
+   NEWS PAGE - HERO SECTION
+================================ */
+
+.newsHero {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Decorative accent bars */
+  .newsHero::before,
+  .newsHero::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 120px;
+    background: var(--accent);
+  }
+  
+  .newsHero::before {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .newsHero::after {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  /* Subtle gradient overlay for depth */
+  .heroOverlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      circle at 30% 50%,
+      rgba(250, 180, 0, 0.05) 0%,
+      transparent 50%
+    );
+  }
+  
+  .heroInner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 40px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    z-index: 2;
+  }
+  
+  .heroContent h1 {
+    font-size: clamp(48px, 8vw, 96px);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    text-shadow: 
+      2px 2px 0 var(--accent),
+      4px 4px 0 rgba(0,0,0,0.3);
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  .heroContent p {
+    font-size: clamp(16px, 2vw, 20px);
+    opacity: 0.85;
+    margin-bottom: 40px;
+    letter-spacing: 0.02em;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+  }
+  
+  .heroAccent {
+    width: 100px;
+    height: 4px;
+    background: var(--accent);
+    margin: 0 auto;
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ===============================
+     NEWS SECTION
+  ================================ */
+  
+  .newsSection {
+    background: var(--paper);
+    padding: 100px 0;
+    position: relative;
+  }
+  
+  /* Top accent line */
+  .newsSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: var(--accent);
+  }
+  
+  .newsInner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  
+  .newsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 40px;
+  }
+  
+  /* ===============================
+     NEWS CARDS
+  ================================ */
+  
+  .newsCard {
+    background: #fff;
+    padding: 40px 32px;
+    border-left: 5px solid var(--accent);
+    box-shadow: 
+      0 4px 16px rgba(0,0,0,0.08),
+      0 2px 4px rgba(0,0,0,0.04);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    animation: slideIn 0.6s ease-out both;
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animated accent line on hover */
+  .newsCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 0;
+    background: var(--accent-dark);
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .newsCard:hover::before {
+    height: 100%;
+  }
+  
+  .newsCard:hover {
+    transform: translateX(8px);
+    box-shadow: 
+      -8px 12px 32px rgba(0,0,0,0.12),
+      -4px 6px 8px rgba(0,0,0,0.06);
+    border-left-color: var(--accent-dark);
+  }
+  
+  /* Card Header with date and category */
+  .cardHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap: 16px;
+  }
+  
+  .date {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--accent-dark);
+    letter-spacing: 0.05em;
+  }
+  
+  .category {
+    display: inline-block;
+    padding: 4px 12px;
+    background: var(--accent);
+    color: #000;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+  }
+  
+  .newsCard h2 {
+    font-size: clamp(22px, 2.5vw, 28px);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    color: var(--dark);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    transition: color 0.3s ease;
+  }
+  
+  .newsCard:hover h2 {
+    color: var(--accent-dark);
+  }
+  
+  .newsCard p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text);
+    opacity: 0.85;
+    margin-bottom: 24px;
+  }
+  
+  /* Read More Link */
+  .readMore {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 800;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: var(--dark);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .readMore::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  
+  .readMore:hover {
+    color: var(--accent-dark);
+    gap: 12px;
+  }
+  
+  .readMore:hover::after {
+    width: 100%;
+  }
+  
+  .readMore svg {
+    transition: transform 0.3s ease;
+  }
+  
+  .readMore:hover svg {
+    transform: translateX(4px);
+  }
+  
+  /* ===============================
+     EMPTY STATE
+  ================================ */
+  
+  .emptyState {
+    text-align: center;
+    padding: 100px 20px;
+    color: var(--text);
+    opacity: 0.6;
+  }
+  
+  .emptyState p {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  /* ===============================
+     RESPONSIVE
+  ================================ */
+  
+  @media (max-width: 900px) {
+    .newsGrid {
+      grid-template-columns: 1fr;
+    }
+    
+    .heroInner {
+      padding: 80px 20px;
+    }
+    
+    .newsSection {
+      padding: 60px 0;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .heroInner,
+    .newsInner {
+      padding: 60px 20px;
+    }
+    
+    .newsCard {
+      padding: 32px 24px;
+    }
+    
+    .cardHeader {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    
+    .heroContent h1 {
+      font-size: 40px;
+    }
+  }
