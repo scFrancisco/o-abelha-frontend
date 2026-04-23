@@ -1,0 +1,667 @@
+
+/* ===============================
+   NAVBAR - Heritage Modern Style
+================================ */
+.navbar {
+  background-color: var(--paper);
+  border-bottom: 3px solid var(--accent);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  border-bottom-width: 2px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: clamp(16px, 2vw, 24px) 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.brand:hover {
+  transform: scale(1.02);
+}
+
+.name {
+  font-weight: 900;
+  font-size: clamp(16px, 1.8vw, 22px);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--dark);
+  text-shadow: 1px 1px 0 var(--accent);
+  transition: text-shadow 0.3s ease;
+}
+
+.brand:hover .name {
+  text-shadow: 2px 2px 0 var(--accent);
+}
+
+.links {
+  display: flex;
+  gap: clamp(20px, 3vw, 48px);
+  align-items: center;
+}
+
+.links a {
+  font-weight: 700;
+  font-size: clamp(13px, 1.2vw, 15px);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  white-space: nowrap;
+  position: relative;
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+/* Underline effect */
+.links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--accent);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.links a:hover {
+  color: var(--dark);
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+.links a.active {
+  color: var(--dark);
+  font-weight: 800;
+}
+
+.links a.active::after {
+  width: 100%;
+  background: var(--accent-dark);
+}
+
+/* Mobile menu button (if needed) */
+.menuToggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.menuToggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: var(--dark);
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    padding: 16px 20px;
+  }
+  
+  .menuToggle {
+    display: flex;
+  }
+  
+  .links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    background: var(--paper);
+    border-top: 2px solid var(--accent);
+    padding: 20px 0;
+  }
+  
+  .links.open {
+    display: flex;
+  }
+  
+  .links a {
+    padding: 12px 20px;
+    width: 100%;
+  }
+  
+  .links a::after {
+    left: 20px;
+    right: 20px;
+    width: 0;
+  }
+  
+  .links a:hover::after,
+  .links a.active::after {
+    width: calc(100% - 40px);
+  }
+}
+
+/* ===============================
+   HERO SECTION - Classic with Modern Touch
+================================ */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  background-image: url("/hero.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom, 
+    rgba(0,0,0,0.3) 0%, 
+    rgba(0,0,0,0.6) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 40px;
+  text-align: center;
+  color: #fff;
+}
+
+.heroContent h1 {
+  font-size: clamp(48px, 10vw, 120px);
+  font-weight: 900;
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  /* Vintage sports poster style text shadow */
+  text-shadow: 
+    3px 3px 0 var(--accent),
+    6px 6px 0 rgba(0,0,0,0.2);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.heroContent p {
+  font-size: clamp(18px, 2.5vw, 28px);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+  opacity: 0.95;
+  animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.heroContent a {
+  display: inline-block;
+  padding: 18px 48px;
+  background-color: var(--accent);
+  color: #000;
+  font-weight: 800;
+  font-size: 16px;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  border: 3px solid #000;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.9);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.heroContent a:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.9);
+  background-color: var(--accent-dark);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   ABOUT SECTION - Clean & Elegant
+================================ */
+.about {
+  background-color: var(--paper);
+  padding: 120px 0;
+  position: relative;
+}
+
+/* Subtle decorative line */
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: var(--accent);
+}
+
+.aboutInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.aboutText h2 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  margin-bottom: 30px;
+  color: var(--dark);
+  position: relative;
+  display: inline-block;
+}
+
+/* Underline accent */
+.aboutText h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--accent);
+}
+
+.aboutText p {
+  font-size: 18px;
+  line-height: 1.8;
+  color: var(--text);
+  opacity: 0.9;
+}
+
+.aboutImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 8px solid #fff;
+  box-shadow: 
+    0 10px 40px rgba(0,0,0,0.1),
+    0 2px 8px rgba(0,0,0,0.06);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aboutImage:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 20px 50px rgba(0,0,0,0.15),
+    0 4px 12px rgba(0,0,0,0.08);
+}
+
+.aboutImage img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.aboutImage:hover img {
+  transform: scale(1.05);
+}
+
+/* ===============================
+   DARK SECTION - Modern Minimalist
+================================ */
+.graffiti-bg {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+  position: relative;
+  padding: 100px 0;
+}
+
+/* Subtle accent bars on the sides */
+.graffiti-bg::before,
+.graffiti-bg::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 200px;
+  background: var(--accent);
+  top: 100px;
+}
+
+.graffiti-bg::before { left: 0; }
+.graffiti-bg::after { right: 0; }
+
+.activitiesInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px 100px;
+}
+
+.sectionTitle {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 80px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+/* Centered accent line under title */
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: var(--accent);
+}
+
+/* ===============================
+   ACTIVITY CARDS - Clean Modern Cards
+================================ */
+.activitiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  margin-bottom: 100px;
+}
+
+.activityCard {
+  background: var(--paper);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.activityCard:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  border-color: var(--accent);
+}
+
+.activityCard h3 {
+  font-size: 22px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+  padding: 0 20px;
+}
+
+.activityCard p {
+  font-size: 15px;
+  opacity: 0.8;
+  padding: 0 20px 20px;
+}
+
+.activityCard .relative {
+  overflow: hidden;
+}
+
+.activityCard img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.activityCard:hover img {
+  transform: scale(1.1);
+}
+
+/* ===============================
+   NEWS SECTION - Magazine Style
+================================ */
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  padding-bottom: 100px;
+}
+
+.newsCard {
+  background: var(--paper);
+  padding: 40px 30px;
+  border-left: 4px solid var(--accent);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.newsCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--accent-dark);
+  transition: height 0.3s ease;
+}
+
+.newsCard:hover::before {
+  height: 100%;
+}
+
+.newsCard:hover {
+  transform: translateX(8px);
+  box-shadow: -8px 8px 24px rgba(0,0,0,0.15);
+}
+
+.newsCard span {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+
+.newsCard h3 {
+  font-size: 24px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+  color: var(--dark);
+}
+
+.newsCard p {
+  font-size: 15px;
+  line-height: 1.7;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+
+.newsCard a {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--dark);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: gap 0.3s ease;
+}
+
+.newsCard a:hover {
+  gap: 12px;
+  color: var(--accent-dark);
+}
+
+/* ===============================
+   SPONSORS - Elegant Scroll
+================================ */
+.sponsorsRow {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  animation: scrollSponsors 30s linear infinite;
+  padding: 20px 0;
+}
+
+.sponsorsRow img {
+  filter: grayscale(100%) brightness(0) invert(1);
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.sponsorsRow img:hover {
+  opacity: 1;
+  filter: grayscale(0%) brightness(1) invert(0);
+}
+
+@keyframes scrollSponsors {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===============================
+   FOOTER - Clean & Professional
+================================ */
+.footer {
+  background-color: var(--dark);
+  color: #fff;
+  padding: 80px 40px 40px;
+  text-align: center;
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 4px;
+  background: var(--accent);
+}
+
+.footerLogo {
+  font-size: 42px;
+  font-weight: 900;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  text-shadow: 2px 2px 0 var(--accent);
+}
+
+.footerLocation {
+  font-size: 16px;
+  font-weight: 600;
+  opacity: 0.7;
+  margin-bottom: 40px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.socialLinks a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.socialLinks a:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+.copyright {
+  font-size: 13px;
+  opacity: 0.5;
+  margin-top: 30px;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+================================ */
+@media (max-width: 900px) {
+  .aboutInner {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  
+  .heroContent h1 {
+    font-size: 48px;
+  }
+  
+  .aboutText h2::after {
+    width: 40px;
+  }
+  
+  .activitiesGrid,
+  .newsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .socialLinks {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroContent {
+    padding: 40px 20px;
+  }
+  
+  .about,
+  .graffiti-bg {
+    padding: 60px 0;
+  }
+  
+  .activitiesInner {
+    padding: 0 20px 60px;
+  }
+}
