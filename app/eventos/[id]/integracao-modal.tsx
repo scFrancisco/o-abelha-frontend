@@ -1,5 +1,6 @@
 // 1. Adiciona o import no topo de eventos/[id]/page.tsx
 import InscricaoModal from "./InscricaoModal";
+import styles from './integracao-modal.module.css';
 
 // 2. Atualiza o type Evento com os novos campos:
 type Evento = {
