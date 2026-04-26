@@ -1,34 +1,49 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #f9f7f4;
-  --dark: #1a1a1a;
-  --accent: #fab400;
-  --accent-dark: #d69500;
-  --text: #2c2c2c;
-  --border: #e0ddd8;
+  --paper: #FAFAF7;
+  --surface: #FFFFFF;
+  --dark: #0D0D14;
+  --dark-2: #161620;
+  --accent: #F5A623;
+  --accent-dark: #D4881A;
+  --accent-light: #FEF3DC;
+  --text: #374151;
+  --text-muted: #9CA3AF;
+  --border: #E5E7EB;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 20px;
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
   background: var(--paper);
   color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-family: var(--font-sans);
   overflow-x: hidden;
   line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* ===============================
-   FOOTER - Used on all pages
+   FOOTER
 ================================ */
 .footer {
   background-color: var(--dark);
   color: #fff;
-  padding: 80px 40px 40px;
+  padding: 80px 40px 48px;
   text-align: center;
   position: relative;
 }
@@ -37,67 +52,60 @@ body {
   content: '';
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120px;
-  height: 4px;
-  background: var(--accent);
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
 }
 
 .footerLogo {
-  font-size: 42px;
+  font-size: 32px;
   font-weight: 900;
-  margin-bottom: 12px;
-  text-transform: uppercase;
-  letter-spacing: -0.02em;
-  text-shadow: 2px 2px 0 var(--accent);
+  margin-bottom: 8px;
+  letter-spacing: -0.03em;
+  color: #fff;
 }
 
 .footerLocation {
-  font-size: 16px;
-  font-weight: 600;
-  opacity: 0.7;
-  margin-bottom: 40px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 48px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
 .socialLinks {
   display: flex;
-  gap: 40px;
+  gap: 32px;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 .socialLinks a {
-  color: #fff;
+  color: rgba(255, 255, 255, 0.55);
   text-decoration: none;
-  font-weight: 700;
-  font-size: 15px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding-bottom: 4px;
-  border-bottom: 2px solid transparent;
-  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
 }
 
 .socialLinks a:hover {
   color: var(--accent);
-  border-bottom-color: var(--accent);
 }
 
 .copyright {
   font-size: 13px;
-  opacity: 0.5;
-  margin-top: 30px;
+  color: rgba(255, 255, 255, 0.3);
 }
 
 /* ===============================
-   RESPONSIVE - Footer
+   RESPONSIVE
 ================================ */
 @media (max-width: 900px) {
   .socialLinks {
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
   }
 }
