@@ -3,8 +3,6 @@
 import { useState, useEffect } from "react";
 import styles from "./InscricaoModal.module.css";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
-
 type Props = {
   eventoId: number;
   eventoTitulo: string;
@@ -18,6 +16,7 @@ export default function InscricaoModal({ eventoId, eventoTitulo, preco, capacida
   const [aberto, setAberto] = useState(false);
   const [nome, setNome] = useState("");
   const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
   const [numPessoas, setNumPessoas] = useState(1);
   const [estado, setEstado] = useState<Estado>("idle");
   const [erro, setErro] = useState("");
@@ -32,7 +31,7 @@ export default function InscricaoModal({ eventoId, eventoTitulo, preco, capacida
   const esgotado = lugaresDisponiveis !== null && lugaresDisponiveis <= 0;
 
   useEffect(() => {
-    fetch(`${API_URL}/api/inscricoes/evento/${eventoId}/lugares`)
+    fetch(`/api/inscricoes/lugares?eventoId=${eventoId}`)
       .then((r) => r.json())
       .then((d) => setLugaresDisponiveis(d.disponiveis))
       .catch(() => setLugaresDisponiveis(null));
@@ -86,6 +85,7 @@ export default function InscricaoModal({ eventoId, eventoTitulo, preco, capacida
   const resetar = () => {
     setNome("");
     setEmail("");
+    setTelefone("");
     setNumPessoas(1);
     setEstado("idle");
     setErro("");
@@ -96,18 +96,18 @@ export default function InscricaoModal({ eventoId, eventoTitulo, preco, capacida
   };
 
   const handleSubmit = async () => {
-    if (!nome.trim() || !email.trim()) {
-      setErro("Preenche o nome e o email.");
+    if (!nome.trim() || !email.trim() || !telefone.trim()) {
+      setErro("Preenche o nome, email e telemóvel.");
       return;
     }
     setErro("");
     setEstado("loading");
 
     try {
-      const res = await fetch(`${API_URL}/api/inscricoes`, {
+      const res = await fetch(`/api/inscricoes`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ eventoId, nome, email, numPessoas }),
+        body: JSON.stringify({ eventoId, nome, email, telefone, numPessoas }),
       });
 
       const data = await res.json();
@@ -260,6 +260,20 @@ export default function InscricaoModal({ eventoId, eventoTitulo, preco, capacida
                         onChange={(e) => setEmail(e.target.value)}
                         disabled={estado === "loading"}
                       />
+                    </div>
+
+                    <div className={styles.field}>
+                      <label>Telemóvel (para MBWay)</label>
+                      <input
+                        type="tel"
+                        placeholder="+351 9XX XXX XXX"
+                        value={telefone}
+                        onChange={(e) => setTelefone(e.target.value)}
+                        disabled={estado === "loading"}
+                      />
+                      <span className={styles.fieldHint}>
+                        Usado para confirmar o pagamento via MBWay
+                      </span>
                     </div>
 
                     <div className={styles.field}>

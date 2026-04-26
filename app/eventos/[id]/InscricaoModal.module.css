@@ -214,6 +214,12 @@
   cursor: not-allowed;
 }
 
+.fieldHint {
+  font-size: 11px;
+  opacity: 0.45;
+  margin-top: 2px;
+}
+
 /* Counter */
 .counter {
   display: flex;
