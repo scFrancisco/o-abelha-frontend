@@ -193,10 +193,10 @@ export default function Home() {
           <ScrollReveal delay={120}>
             <div className={styles.sponsorsGrid}>
               <div className={styles.sponsorItem}>
-                <Image src="/s1.webp" alt="Patrocinador" width={160} height={80} className={styles.sponsorLogo} />
+                <Image src="/s1.png" alt="Patrocinador" width={160} height={80} className={styles.sponsorLogo} />
               </div>
               <div className={styles.sponsorItem}>
-                <Image src="/s2.jpeg" alt="Patrocinador" width={160} height={80} className={styles.sponsorLogo} />
+                <Image src="/s2.png" alt="Patrocinador" width={160} height={80} className={styles.sponsorLogo} />
               </div>
               <div className={styles.sponsorItem}>
                 <Image src="/s3.png" alt="Patrocinador" width={160} height={80} className={styles.sponsorLogo} />
