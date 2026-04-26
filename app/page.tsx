@@ -113,7 +113,7 @@ export default function Home() {
             <ScrollReveal delay={120}>
               <div className={styles.activityCard}>
                 <div className={styles.cardImage}>
-                  <Image src="/atividades/convívio.jpg" alt="Convívio" fill className="object-cover" />
+                  <Image src="/atividades/convívio.JPG" alt="Convívio" fill className="object-cover" />
                 </div>
                 <div className={styles.cardContent}>
                   <h3>Convívio Associativo</h3>
@@ -124,7 +124,7 @@ export default function Home() {
             <ScrollReveal delay={240}>
               <div className={styles.activityCard}>
                 <div className={styles.cardImage}>
-                  <Image src="/atividades/historia.jpg" alt="História" fill className="object-cover" />
+                  <Image src="/atividades/historia.JPG" alt="História" fill className="object-cover" />
                 </div>
                 <div className={styles.cardContent}>
                   <h3>Raízes &amp; História</h3>
