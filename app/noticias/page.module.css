@@ -1,10 +1,7 @@
-/* ===============================
-   NEWS PAGE
-================================ */
-
+/* ── NEWS HERO ── */
 .newsHero {
   background: var(--dark);
-  min-height: 46vh;
+  min-height: 52vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -15,67 +12,67 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 30% 60%,
-    rgba(245, 166, 35, 0.06) 0%,
-    transparent 60%
-  );
+  background: radial-gradient(ellipse at 70% 40%, rgba(245, 166, 35, 0.06) 0%, transparent 60%);
 }
 
 .heroInner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 100px 40px;
+  padding: 120px 40px;
   text-align: center;
   color: #fff;
   position: relative;
   z-index: 2;
 }
 
-.heroContent h1 {
-  font-size: clamp(48px, 8vw, 96px);
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 0.95;
-  margin-bottom: 20px;
-  animation: fadeInUp 0.8s ease-out;
+.eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
+  animation: fadeUp 0.8s ease-out both;
 }
 
-.heroContent p {
-  font-size: clamp(15px, 1.8vw, 18px);
+.heroInner h1 {
+  font-size: clamp(56px, 10vw, 112px);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  margin-bottom: 20px;
+  animation: fadeUp 0.8s ease-out 0.08s both;
+}
+
+.heroInner p {
+  font-size: 17px;
   font-weight: 400;
-  opacity: 0.6;
-  margin-bottom: 40px;
-  letter-spacing: 0.01em;
-  animation: fadeInUp 0.8s ease-out 0.15s both;
+  opacity: 0.55;
+  max-width: 480px;
+  margin: 0 auto 36px;
+  line-height: 1.65;
+  animation: fadeUp 0.8s ease-out 0.16s both;
 }
 
 .heroAccent {
   width: 48px;
   height: 3px;
   background: var(--accent);
-  margin: 0 auto;
   border-radius: 2px;
-  animation: fadeInUp 0.8s ease-out 0.3s both;
+  margin: 0 auto;
+  animation: fadeUp 0.8s ease-out 0.24s both;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===============================
-   NEWS SECTION
-================================ */
+/* ── NEWS SECTION ── */
 .newsSection {
   background: var(--paper);
-  padding: 100px 0;
+  padding: 120px 0;
 }
 
 .newsInner {
@@ -86,34 +83,19 @@
 
 .newsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
   gap: 24px;
 }
 
-/* ===============================
-   NEWS CARDS
-================================ */
+/* ── NEWS CARD ── */
 .newsCard {
   background: var(--surface);
-  padding: 36px 32px;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  transition: all 0.35s ease;
+  border-radius: var(--radius-lg);
+  padding: 36px 32px;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  animation: slideIn 0.6s ease-out both;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
 }
 
 .newsCard::before {
@@ -134,18 +116,18 @@
 }
 
 .newsCard:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.09);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.09);
   border-color: transparent;
 }
 
-/* Card header */
 .cardHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 20px;
   gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
 }
 
 .date {
@@ -158,22 +140,22 @@
 
 .category {
   display: inline-block;
-  padding: 4px 10px;
+  padding: 4px 12px;
   background: var(--accent-light);
   color: var(--accent-dark);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   border-radius: 100px;
 }
 
 .newsCard h2 {
   font-size: clamp(20px, 2.2vw, 26px);
   font-weight: 800;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.025em;
   line-height: 1.2;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
   color: var(--dark);
   transition: color 0.2s ease;
 }
@@ -187,7 +169,7 @@
   line-height: 1.75;
   color: var(--text);
   opacity: 0.8;
-  margin-bottom: 24px;
+  margin-bottom: 26px;
 }
 
 .readMore {
@@ -199,7 +181,7 @@
   letter-spacing: 0.04em;
   color: var(--dark);
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: gap 0.25s ease, color 0.2s ease;
 }
 
 .readMore:hover {
@@ -215,22 +197,35 @@
   transform: translateX(3px);
 }
 
-/* ===============================
-   EMPTY STATE
-================================ */
+/* ── EMPTY STATE ── */
 .emptyState {
   text-align: center;
-  padding: 100px 20px;
+  padding: 120px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.emptyIcon {
+  font-size: 48px;
+}
+
+.emptyState h3 {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--dark);
 }
 
 .emptyState p {
-  font-size: 17px;
+  font-size: 16px;
   color: var(--text-muted);
+  max-width: 400px;
+  line-height: 1.7;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
+/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .newsGrid {
     grid-template-columns: 1fr;
@@ -244,20 +239,14 @@
   }
 
   .heroInner {
-    padding: 72px 20px;
+    padding: 80px 20px;
+  }
+
+  .newsSection {
+    padding: 80px 0;
   }
 
   .newsCard {
     padding: 28px 24px;
-  }
-
-  .cardHeader {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-
-  .newsSection {
-    padding: 64px 0;
   }
 }

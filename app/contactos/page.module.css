@@ -1,24 +1,25 @@
-/* ===============================
-   CONTACTS PAGE
-================================ */
-
+/* ── CONTACTS HERO ── */
 .contactsHero {
   background: var(--dark);
-  padding: 120px 0 80px;
+  padding: 160px 0 120px;
   position: relative;
   overflow: hidden;
 }
 
-.contactsHero::after {
-  content: '';
+.heroOverlay {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 64px;
-  height: 3px;
-  background: var(--accent);
-  border-radius: 2px;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 60%, rgba(245, 166, 35, 0.06) 0%, transparent 60%);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 16px;
 }
 
 .heroInner {
@@ -27,28 +28,31 @@
   padding: 0 40px;
   text-align: center;
   color: #fff;
+  position: relative;
+  z-index: 2;
 }
 
 .heroInner h1 {
-  font-size: clamp(48px, 8vw, 96px);
+  font-size: clamp(56px, 10vw, 112px);
   font-weight: 900;
   letter-spacing: -0.04em;
-  line-height: 0.95;
-  margin-bottom: 20px;
+  line-height: 0.9;
+  margin-bottom: 24px;
 }
 
 .heroInner p {
-  font-size: 17px;
+  font-size: 18px;
   font-weight: 400;
-  opacity: 0.6;
+  opacity: 0.55;
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.65;
 }
 
-/* ===============================
-   CONTACT SECTION
-================================ */
+/* ── CONTACTS SECTION ── */
 .contactsSection {
   background: var(--paper);
-  padding: 100px 0;
+  padding: 120px 0;
 }
 
 .contactsInner {
@@ -56,15 +60,24 @@
   margin: 0 auto;
   padding: 0 40px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 72px;
+  align-items: start;
 }
 
-/* ===============================
-   CONTACT INFO
-================================ */
+/* ── CONTACT INFO ── */
+.eyebrowDark {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-dark);
+  margin-bottom: 12px;
+}
+
 .contactInfo h2 {
-  font-size: 36px;
+  font-size: clamp(32px, 4vw, 48px);
   font-weight: 900;
   letter-spacing: -0.03em;
   line-height: 1;
@@ -77,7 +90,7 @@
   line-height: 1.8;
   color: var(--text);
   opacity: 0.8;
-  margin-bottom: 36px;
+  margin-bottom: 40px;
 }
 
 .contactList {
@@ -85,46 +98,113 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-bottom: 40px;
 }
 
 .contactList li {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--dark);
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
-.contactList span {
+.contactIcon {
+  font-size: 20px;
+  width: 44px;
+  height: 44px;
+  background: var(--accent-light);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.contactList li div span {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.contactList li div {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  padding-top: 2px;
+}
+
+.contactList a {
+  color: var(--dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactList a:hover {
+  color: var(--accent-dark);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.socialBtn {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 22px;
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.socialBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent-dark);
+  background: var(--accent-light);
+}
+
+/* ── CONTACT FORM ── */
+.contactForm {
+  background: var(--surface);
+  padding: 48px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+}
+
+.contactForm h3 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  margin-bottom: 32px;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field {
+  margin-bottom: 16px;
+}
+
+.field label {
   display: block;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--accent-dark);
-  margin-bottom: 4px;
-}
-
-/* ===============================
-   CONTACT FORM
-================================ */
-.contactForm {
-  background: var(--surface);
-  padding: 40px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
-}
-
-.field {
-  margin-bottom: 20px;
-}
-
-.field label {
-  display: block;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text);
+  color: var(--text-muted);
   margin-bottom: 8px;
 }
 
@@ -138,8 +218,8 @@
   font-family: var(--font-sans);
   color: var(--dark);
   background: var(--paper);
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
   outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .field input:focus,
@@ -155,11 +235,11 @@
 }
 
 .contactForm button {
-  margin-top: 8px;
   width: 100%;
+  margin-top: 8px;
   padding: 15px 32px;
-  background: var(--accent);
-  color: #000;
+  background: var(--dark);
+  color: #fff;
   border: none;
   border-radius: 100px;
   font-weight: 700;
@@ -167,30 +247,27 @@
   letter-spacing: 0.03em;
   font-family: var(--font-sans);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .contactForm button:hover {
   background: var(--accent-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 28px rgba(245, 166, 35, 0.35);
+  box-shadow: 0 10px 32px rgba(212, 136, 26, 0.3);
 }
 
-/* ===============================
-   MAP
-================================ */
-.map {
-  margin-top: 80px;
-  width: 100%;
-  height: 420px;
+/* ── MAP ── */
+.mapWrap {
+  max-width: 1200px;
+  margin: 80px auto 0;
+  padding: 0 40px;
+  height: 440px;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 1px solid var(--border);
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
+/* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .contactsInner {
     grid-template-columns: 1fr;
@@ -204,7 +281,25 @@
     padding: 0 20px;
   }
 
+  .contactsHero {
+    padding: 120px 0 80px;
+  }
+
+  .contactsSection {
+    padding: 80px 0;
+  }
+
   .contactForm {
     padding: 28px 20px;
+  }
+
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+
+  .mapWrap {
+    height: 300px;
+    padding: 0 20px;
+    margin-top: 48px;
   }
 }
